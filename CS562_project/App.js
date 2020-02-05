@@ -14,7 +14,7 @@ import Search from './Search'
 
 const TabNavigator = createBottomTabNavigator({
     News: Upcoming,
-  Search: Search,
+  Upcoming: Search,
 });
 
 export default createAppContainer(TabNavigator);

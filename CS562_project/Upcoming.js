@@ -13,7 +13,7 @@ export default class UpcomingScreen extends Component {
  
   componentDidMount() {
    try {
-        axios.get('http://people.oregonstate.edu/~linyou/upcominglist.php')
+        axios.get('http://people.oregonstate.edu/~linyou/Newslist.php')
        .then(res => {
          const data = res.data;
          this.setState({
@@ -35,12 +35,9 @@ export default class UpcomingScreen extends Component {
          <View style = {{marginTop:2}}>
  
            <Text style={styles.item}>
-             {item.name}
+             {item.des}
            </Text>
  
-           <Text style = {styles.item}>
-            {item.date}   ${item.price}
-           </Text>
           
            <View style={{marginTop:10, justifyContent: 'center', alignItems: 'center'}}>
            <TouchableOpacity onPress={ () => this.navigation.navigate(Upcoming) }>
