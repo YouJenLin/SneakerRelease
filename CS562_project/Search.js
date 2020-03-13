@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, TextInput, ActivityIndicator, Alert  } from "react-native";
-import { SearchBar, ListItem } from 'react-native-elements';
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, ActivityIndicator} from "react-native";
+import { SearchBar} from 'react-native-elements';
 import axios from 'axios';
 export default class SearchScreen extends Component {
   constructor(props) {
@@ -12,11 +12,6 @@ export default class SearchScreen extends Component {
     }
     this.arrayholder = [];
   }
-
- /*componentDidMount(){
-   Alert.alert("before make_remote");
-   this.makeRemoteRequest();
-  }*/
 
   componentDidMount(){
     axios.get('http://people.oregonstate.edu/~linyou/upcominglist.php')
@@ -101,22 +96,28 @@ export default class SearchScreen extends Component {
          renderItem={({item}) =>
          <View style = {{marginTop:2}}>
  
-           <Text style={styles.item}>
+           <Text style={{fontSize:20}}>
              {item.name}
            </Text>
  
-           <Text style = {styles.item}>
-            {item.date}   ${item.price}
+           <Text style = {{fontSize:20}}>
+            {item.date}       ${item.price}
            </Text>
            <View style={{marginTop:10, justifyContent: 'center', alignItems: 'center'}}>
-           <TouchableOpacity onPress={ () => this.navigation.navigate(Upcoming) }>
+           <TouchableOpacity onPress={ () => this.props.navigation.navigate('Product' ,{ ListClick_uid:item.uid, ListClick_name:item.name, ListClick_price:item.price, ListClick_pic:item.picture, ListClick_date:item.date, ListClick_estprice:item.estprice})}>
            <Image
            style={{width: 350, height:250}}
             source={{uri: `data:image/jpeg;base64,${item.picture}`}}
            />
            </TouchableOpacity>          
            </View>
-      </View>
+           <Text>
+           
+           </Text>
+           <Text>
+                 
+           </Text>
+        </View>
       }
         keyExtractor={(item, index) => `key-${item.uid}`}
      />
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
   item: {
     padding: 10,
     fontSize: 18,
-    height: 45,
+    height: 35,
   },
  })
  

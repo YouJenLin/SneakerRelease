@@ -2,7 +2,7 @@
 
 include("db_conn.php");
 
-$sql = "SELECT * FROM UpcomingList ORDER BY date";
+$sql = "SELECT * FROM News ";
 
 $stmt = $mysqli->prepare($sql);
 if ($stmt === FALSE) {
@@ -13,15 +13,12 @@ $stmt->store_result();
 
 
 if ($result_exe) {
-   $result_bind = $stmt->bind_result($uid, $name, $picture, $date, $price, $estprice);
+   $result_bind = $stmt->bind_result($nid, $des, $picture);
    if ($result_bind) {
       while ($stmt->fetch()) {
          $return_arr[] = array(
-         "uid" => $uid,
-         "name" => $name,
-         "price" => $price,
-         "estprice" => $estprice,
-         "date" => $date,
+         "nid" => $nid,
+         "des" => $des,
          "picture" => base64_encode($picture)
       );
       }

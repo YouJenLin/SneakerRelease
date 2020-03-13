@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity, TextInput, Alert,  } from "react-native";
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity,} from "react-native";
 import axios from 'axios';
 export default class UpcomingScreen extends Component {
  constructor(props) {
