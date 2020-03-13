@@ -18,7 +18,7 @@ export default class UpcomingScreen extends Component {
          const data = res.data;
          this.setState({
             data:data
-         });        
+         });       
        })     
      } catch(err) {
        console.log("Error fetching data-----------", err);
@@ -35,17 +35,27 @@ export default class UpcomingScreen extends Component {
          <View style = {{marginTop:2}}>
  
            <Text style={styles.item}>
-             {item.des}
+             {item.name}
            </Text>
  
           
            <View style={{marginTop:10, justifyContent: 'center', alignItems: 'center'}}>
-           <TouchableOpacity onPress={ () => this.navigation.navigate(Upcoming) }>
+          
            <Image
            style={{width: 350, height:250}}
             source={{uri: `data:image/jpeg;base64,${item.picture}`}}
            />
-           </TouchableOpacity>
+          <Text style={{padding: 10}}>
+              {item.des}
+           </Text>
+
+           <Text>
+
+           </Text>
+
+           <Text>
+             
+           </Text>
           
            </View>
           
@@ -65,6 +75,8 @@ const styles = StyleSheet.create({
   flex: 1,
  },
  item: {
+   justifyContent: 'center',
+   alignItems: 'center',
    padding: 10,
    fontSize: 18,
    height: 43,

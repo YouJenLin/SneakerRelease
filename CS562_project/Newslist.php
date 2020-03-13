@@ -13,12 +13,13 @@ $stmt->store_result();
 
 
 if ($result_exe) {
-   $result_bind = $stmt->bind_result($nid, $des, $picture);
+   $result_bind = $stmt->bind_result($nid, $des, $picture, $name);
    if ($result_bind) {
       while ($stmt->fetch()) {
          $return_arr[] = array(
          "nid" => $nid,
          "des" => $des,
+         "name" => $name,
          "picture" => base64_encode($picture)
       );
       }
